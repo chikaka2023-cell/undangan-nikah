@@ -53,21 +53,28 @@ margin-bottom:25px;
 }
 
 .btn{
-padding:14px 35px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:14px 30px;
 background:#d4af37;
-border:none;
 color:white;
 font-size:18px;
 border-radius:50px;
-cursor:pointer;
-transition:.3s;
 text-decoration:none;
+min-height:55px;
+text-align:center;
 }
 
-.btn:hover{
-transform:scale(1.05);
+@media(max-width:768px){
+
+.btn{
+width:220px;
+font-size:16px;
+padding:12px 20px;
 }
 
+}
 .title{
 font-family:'Great Vibes',cursive;
 font-size:60px;
@@ -232,7 +239,7 @@ untuk menghadiri acara pernikahan kami.
 
 <br><br>
 
-<h2>❤️</h2>
+<h2></h2>
 
 <br><br>
 
@@ -293,16 +300,16 @@ Gedung Mahligai Pancasila<br>
     <h1 class="title">Lokasi Acara</h1>
 
     <div class="card">
-        <h2>Gedung Serbaguna</h2>
-        <p>Jl. Contoh No. 123, Kota Anda</p>
+        <h2>Gedung Mahligai Pancasila</h2>
+        <p> Jl. Suprapto, Antasan Besar, Kec. Banjarmasin Tengah, Kota Banjarmasin, Kalimantan Selatan 70114</p>
 
         <br>
 
-        <a href="https://maps.google.com/?q=Gedung+Serbaguna+Kota+Anda"
-           target="_blank"
-           class="btn">
-           📍 Buka Google Maps
-        </a>
+      <a href="https://maps.google.com/?q=Gedung+Mahligai+Pancasila"
+   target="_blank"
+   class="btn maps-btn">
+   📍 Buka Google Maps
+</a>
 
         <br><br>
 
