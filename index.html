@@ -182,13 +182,21 @@ font-size:45px;
 
 <div class="hearts"></div>
 
-<audio autoplay loop>
-    <source src="Musik/musik.mp3" type="audio/mpeg">
+<audio id="music" loop>
+    <source src="musik.mp3" type="audio/mpeg">
 </audio>
+
+<button onclick="playMusic()">Buka Undangan</button>
+
+<script>
+function playMusic(){
+    document.getElementById("music").play();
+}
+</script>
 
 <section class="cover">
 <h2>The Wedding Of</h2>
-<h1>Jeshica Herliana Putri & Rizky Habobie</h1>
+<h1>Jeshica Herliana Putri & Rizky Habibie</h1>
 <p>Dengan penuh kebahagiaan mengundang Anda hadir dalam acara kami</p>
 
 <br>
