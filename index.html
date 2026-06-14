@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Undangan Digital Premium</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -12,52 +14,55 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
 overflow:hidden;
-font-family:Poppins,sans-serif;
+background:#f8f5f0;
 }
 
-.container{
+/* SLIDER */
+.slider{
 display:flex;
-width:300vw;
+width:800vw;
 height:100vh;
-transition:1s ease;
+transition:1s ease-in-out;
 }
 
 .slide{
 width:100vw;
 height:100vh;
+flex-shrink:0;
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
-padding:20px;
+flex-direction:column;
+padding:30px;
 text-align:center;
 }
 
+/* COVER */
 .cover{
-background:#111;
+background:
+linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200');
+background-size:cover;
+background-position:center;
 color:white;
 }
 
-.page{
-background:#fff;
+.cover h1{
+font-family:'Great Vibes',cursive;
+font-size:80px;
+margin-bottom:10px;
 }
 
-.btn{
-padding:15px 30px;
-border:none;
-border-radius:50px;
-background:gold;
-color:white;
-font-size:18px;
-cursor:pointer;
-margin-top:20px;
+.cover h2{
+font-weight:300;
+margin-bottom:20px;
 }
 
-}
 .title{
 font-family:'Great Vibes',cursive;
 font-size:60px;
@@ -65,48 +70,61 @@ color:#d4af37;
 margin-bottom:20px;
 }
 
-.content{
-max-width:700px;
-}
-
 .card{
 background:white;
-padding:30px;
+padding:25px;
 border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
-margin-top:20px;
-width:100%;
 max-width:700px;
+width:100%;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
+.btn{
+padding:15px 30px;
+border:none;
+border-radius:50px;
+background:#d4af37;
+color:white;
+font-size:18px;
+cursor:pointer;
+text-decoration:none;
+margin-top:20px;
+display:inline-block;
+}
+
+.btn:hover{
+opacity:.9;
+}
+
+/* COUNTDOWN */
 .countdown{
 display:flex;
-gap:20px;
+gap:15px;
 flex-wrap:wrap;
 justify-content:center;
-margin-top:20px;
 }
 
 .box{
 background:#d4af37;
 color:white;
-padding:20px;
+padding:15px;
 border-radius:15px;
 width:90px;
 }
 
 .box span{
-font-size:30px;
+font-size:28px;
 font-weight:bold;
 display:block;
 }
 
+/* GALERI */
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(2,1fr);
 gap:15px;
+max-width:900px;
 width:100%;
-max-width:1000px;
 }
 
 .gallery img{
@@ -114,20 +132,30 @@ width:100%;
 height:250px;
 object-fit:cover;
 border-radius:15px;
-transition:.4s;
 }
 
-.gallery img:hover{
-transform:scale(1.05);
+/* NAVIGASI */
+.nav{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:10px;
+z-index:999;
 }
 
-footer{
-background:#111;
+.nav button{
+border:none;
+padding:12px 20px;
+border-radius:50px;
+background:#d4af37;
 color:white;
-padding:30px;
-text-align:center;
+cursor:pointer;
+font-size:18px;
 }
 
+/* HATI */
 .hearts{
 position:fixed;
 top:0;
@@ -141,7 +169,7 @@ overflow:hidden;
 .heart{
 position:absolute;
 color:#ff4d6d;
-animation:fall linear infinite;
+animation:fall linear forwards;
 }
 
 @keyframes fall{
@@ -158,102 +186,85 @@ opacity:0;
 @media(max-width:768px){
 
 .cover h1{
-font-size:50px;
+font-size:55px;
 }
 
 .title{
 font-size:45px;
 }
 
+.gallery{
+grid-template-columns:1fr;
+}
+
+.gallery img{
+height:220px;
+}
+
+.box{
+width:75px;
+}
+
+.nav button{
+padding:10px 15px;
+}
 }
 </style>
+
 </head>
+
 <body>
 
-<div class="container" id="slider">
-
-    <!-- Slide 1 -->
-    <section class="slide cover">
-        <h1>Jeshica & Rizky</h1>
-        <p>The Wedding Of</p>
-
-        <button class="btn" onclick="nextSlide()">
-            Buka Undangan
-        </button>
-    </section>
-
-    <!-- Slide 2 -->
-    <section class="slide page">
-        <h1>Assalamu'alaikum</h1>
-        <p>
-            Dengan memohon rahmat dan ridho Allah SWT,
-            kami mengundang Anda untuk hadir.
-        </p>
-    </section>
-
-    <!-- Slide 3 -->
-    <section class="slide page">
-        <h1>Mempelai</h1>
-        <p>Jeshica & Rizky</p>
-    </section>
-
-</div>
-
-</body>
-
 <div class="hearts"></div>
+
 <audio id="music" loop>
-    <source src="musik.mp3" type="audio/mpeg">
+<source src="musik.mp3" type="audio/mpeg">
 </audio>
 
-<button onclick="toggleMusic()" class="btn">
-🎵 Putar Musik
-</button>
+<div class="slider" id="slider">
 
-<script>
-const music = document.getElementById("music");
+<!-- HALAMAN 1 -->
 
-function toggleMusic(){
-    if(music.paused){
-        music.play();
-    }else{
-        music.pause();
-    }
-}
-</script>
-
-<section class="cover">
+<section class="slide cover">
 <h2>The Wedding Of</h2>
 <h1>Jeshica & Rizky</h1>
-<p>Dengan penuh kebahagiaan mengundang Anda hadir dalam acara kami</p>
 
-<br>
+<p>
+Dengan penuh kebahagiaan mengundang Anda
+untuk hadir dalam acara pernikahan kami
+</p>
 
-<a href="#home" class="btn">Buka Undangan</a>
+<button class="btn" onclick="openInvitation()">
+💌 Buka Undangan
+</button>
 </section>
 
-<section id="home">
-<h1 class="title">Assalamu'alaikum Wr.Wb</h1>
+<!-- HALAMAN 2 -->
 
-<div class="content">
+<section class="slide">
+<h1 class="title">Assalamu'alaikum</h1>
+
+<div class="card">
 <p>
 Dengan memohon rahmat dan ridho Allah SWT,
-kami mengundang Bapak/Ibu/Saudara/i
-untuk menghadiri acara pernikahan kami.
+kami bermaksud mengundang Bapak/Ibu/Saudara/i
+untuk hadir dalam acara pernikahan kami.
 </p>
 </div>
 </section>
 
-<section>
+<!-- HALAMAN 3 -->
+
+<section class="slide">
 <h1 class="title">Mempelai</h1>
 
 <div class="card">
 <h2>Jeshica</h2>
-<p>Putri dari Bapak M.Heryadi & Ibu Mega Septiana</p>
+<p>Putri dari Bapak M. Heryadi & Ibu Mega Septiana</p>
 
 <br><br>
 
-<h2 class="title">&</h2>
+<h2>&</h2>
 
 <br><br>
 
@@ -262,10 +273,13 @@ untuk menghadiri acara pernikahan kami.
 </div>
 </section>
 
-<section>
-<h1 class="title">Hitung Mundur Acara</h1>
+<!-- HALAMAN 4 -->
+
+<section class="slide">
+<h1 class="title">Hitung Mundur</h1>
 
 <div class="countdown">
+
 <div class="box">
 <span id="days">0</span>
 Hari
@@ -285,73 +299,75 @@ Menit
 <span id="seconds">0</span>
 Detik
 </div>
+
 </div>
 </section>
 
-<section>
+<!-- HALAMAN 5 -->
+
+<section class="slide">
 <h1 class="title">Detail Acara</h1>
 
 <div class="card">
+
 <h2>Akad Nikah</h2>
-<p>Minggu, 20 Desember 2026</p>
+<p>20 Desember 2026</p>
 <p>09.00 WIB</p>
 
 <br>
 
 <h2>Resepsi</h2>
-<p>Minggu, 20 Desember 2026</p>
+<p>20 Desember 2026</p>
 <p>11.00 WIB - Selesai</p>
+
+</div>
+</section>
+
+<!-- HALAMAN 6 -->
+
+<section class="slide">
+<h1 class="title">Lokasi Acara</h1>
+
+<div class="card">
+
+<p>
+Gedung Mahligai Pancasila
+</p>
 
 <br>
 
-<p>
-Gedung Mahligai Pancasila<br>
+<a href="https://maps.google.com"
+target="_blank"
+class="btn">
+📍 Google Maps </a>
 
-</p>
 </div>
 </section>
-<section>
-    <h1 class="title">Lokasi Acara</h1>
 
-    <div class="card">
-        <h2>Gedung Mahligai Pancasila</h2>
-        <p> Jl. Suprapto, Antasan Besar, Kec. Banjarmasin Tengah, Kota Banjarmasin, Kalimantan Selatan 70114</p>
+<!-- HALAMAN 7 -->
 
-        <br>
-
-      <a href="https://maps.google.com/?q=Gedung+Mahligai+Pancasila"
-   target="_blank"
-   class="btn maps-btn">
-   📍 Buka Google Maps
-</a>
-
-        <br><br>
-
-        <iframe
-            src="https://www.google.com/maps?q=-6.2088,106.8456&hl=id&z=15&output=embed"
-            width="100%"
-            height="350"
-            style="border:0;border-radius:20px;"
-            allowfullscreen=""
-            loading="lazy">
-        </iframe>
-    </div>
-</section>
-<section>
+<section class="slide">
 <h1 class="title">Galeri</h1>
 
 <div class="gallery">
-<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800">
+
 <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800">
+
+<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800">
+
 <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=800">
+
 <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800">
+
 </div>
 </section>
 
-<section>
+<!-- HALAMAN 8 -->
+
+<section class="slide">
 <h1 class="title">Terima Kasih</h1>
 
-<div class="content">
+<div class="card">
 <p>
 Merupakan suatu kehormatan dan kebahagiaan
 bagi kami apabila Bapak/Ibu/Saudara/i
@@ -364,16 +380,81 @@ berkenan hadir dan memberikan doa restu.
 </div>
 </section>
 
-<footer>
-© 2026 Undangan Digital Premium
-</footer>
+</div>
+
+<div class="nav">
+<button onclick="prevSlide()">⬅</button>
+<button onclick="nextSlide()">➡</button>
+</div>
 
 <script>
-const targetDate = new Date("December 20, 2026 09:00:00").getTime();
 
-setInterval(() => {
+/* SLIDER */
+
+let currentSlide = 0;
+
+function updateSlide(){
+document.getElementById("slider").style.transform =
+`translateX(-${currentSlide * 100}vw)`;
+}
+
+function openInvitation(){
+
+document.getElementById("music").play();
+
+currentSlide = 1;
+updateSlide();
+}
+
+function nextSlide(){
+
+if(currentSlide < 7){
+currentSlide++;
+updateSlide();
+}
+
+}
+
+function prevSlide(){
+
+if(currentSlide > 0){
+currentSlide--;
+updateSlide();
+}
+
+}
+
+/* SWIPE HP */
+
+let startX = 0;
+
+document.addEventListener("touchstart",(e)=>{
+startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchend",(e)=>{
+
+let endX = e.changedTouches[0].clientX;
+
+if(startX - endX > 50){
+nextSlide();
+}
+
+if(endX - startX > 50){
+prevSlide();
+}
+
+});
+
+/* COUNTDOWN */
+
+const targetDate =
+new Date("December 20, 2026 09:00:00").getTime();
+
+setInterval(()=>{
 
 const now = new Date().getTime();
+
 const distance = targetDate - now;
 
 document.getElementById("days").innerHTML =
@@ -387,38 +468,42 @@ Math.floor((distance%(1000*60*60))/(1000*60));
 
 document.getElementById("seconds").innerHTML =
 Math.floor((distance%(1000*60))/1000);
-<script>
-let currentSlide = 0;
 
-function nextSlide(){
-    currentSlide++;
-
-    document.getElementById("slider").style.transform =
-    `translateX(-${currentSlide * 100}vw)`;
-}
-</script>
 },1000);
 
-const hearts=document.querySelector('.hearts');
+/* EFEK HATI */
+
+const hearts =
+document.querySelector(".hearts");
 
 function createHeart(){
-const heart=document.createElement('div');
 
-heart.classList.add('heart');
-heart.innerHTML='';
+const heart =
+document.createElement("div");
 
-heart.style.left=Math.random()*100+'%';
-heart.style.fontSize=(Math.random()*20+15)+'px';
-heart.style.animationDuration=(Math.random()*5+5)+'s';
+heart.classList.add("heart");
+
+heart.innerHTML = "❤";
+
+heart.style.left =
+Math.random()*100 + "%";
+
+heart.style.fontSize =
+(Math.random()*20+15)+"px";
+
+heart.style.animationDuration =
+(Math.random()*5+5)+"s";
 
 hearts.appendChild(heart);
 
 setTimeout(()=>{
 heart.remove();
 },10000);
+
 }
 
 setInterval(createHeart,300);
+
 </script>
 
 </body>
