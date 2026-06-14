@@ -137,29 +137,25 @@ border-radius:15px;
 /* NAVIGASI */
 .nav{
 position:fixed;
-bottom:40px;
 left:50%;
 transform:translateX(-50%);
+bottom:80px;
 display:flex;
-gap:10px;
-z-index:9999;
-}
-
-.nav{
-display:flex !important;
+gap:15px;
+z-index:99999;
 }
 
 .nav button{
-width:50px;
-height:50px;
+width:55px;
+height:55px;
 border:none;
 border-radius:50%;
 background:#d4af37;
 color:white;
-font-size:20px;
+font-size:22px;
+cursor:pointer;
 box-shadow:0 5px 15px rgba(0,0,0,.2);
 }
-
 /* HATI */
 .hearts{
 position:fixed;
@@ -171,6 +167,34 @@ pointer-events:none;
 overflow:hidden;
 }
 
+.nav-left,
+.nav-right{
+position:fixed;
+top:50%;
+transform:translateY(-50%);
+z-index:99999;
+}
+
+.nav-left{
+left:15px;
+}
+
+.nav-right{
+right:15px;
+}
+
+.nav-left button,
+.nav-right button{
+width:50px;
+height:50px;
+border:none;
+border-radius:50%;
+background:rgba(212,175,55,.9);
+color:white;
+font-size:24px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
 .heart{
 position:absolute;
 color:#ff4d6d;
@@ -188,7 +212,13 @@ opacity:0;
 }
 }
 
-@media(max-width:768px){
+@media (max-width:768px){
+
+.nav{
+bottom:120px;
+}
+
+}
 
 .slide{
 padding:15px;
@@ -218,14 +248,13 @@ padding:10px 15px;
 
 <body>
 
-<div class="hearts"></div>
+<div class="nav-left">
+<button onclick="prevSlide()">❮</button>
+</div>
 
-<audio id="music" loop>
-<source src="musik.mp3" type="audio/mpeg">
-</audio>
-
-<div class="slider" id="slider">
-
+<div class="nav-right">
+<button onclick="nextSlide()">❯</button>
+</div>
 <!-- HALAMAN 1 -->
 
 <section class="slide cover">
