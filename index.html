@@ -12,66 +12,49 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
 }
 
 body{
-background:#f8f5f0;
-color:#333;
-overflow-x:hidden;
+overflow:hidden;
+font-family:Poppins,sans-serif;
 }
 
-section{
-min-height:100vh;
+.container{
 display:flex;
+width:300vw;
+height:100vh;
+transition:1s ease;
+}
+
+.slide{
+width:100vw;
+height:100vh;
+display:flex;
+flex-direction:column;
 justify-content:center;
 align-items:center;
-flex-direction:column;
-padding:30px;
+padding:20px;
 text-align:center;
 }
 
 .cover{
-background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
-url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200');
-background-size:cover;
-background-position:center;
+background:#111;
 color:white;
 }
 
-.cover h1{
-font-family:'Great Vibes',cursive;
-font-size:70px;
-margin-bottom:10px;
-}
-
-.cover h2{
-font-size:25px;
-font-weight:300;
-margin-bottom:25px;
+.page{
+background:#fff;
 }
 
 .btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:14px 30px;
-background:#d4af37;
+padding:15px 30px;
+border:none;
+border-radius:50px;
+background:gold;
 color:white;
 font-size:18px;
-border-radius:50px;
-text-decoration:none;
-min-height:55px;
-text-align:center;
-}
-
-@media(max-width:768px){
-
-.btn{
-width:220px;
-font-size:16px;
-padding:12px 20px;
+cursor:pointer;
+margin-top:20px;
 }
 
 }
@@ -186,6 +169,37 @@ font-size:45px;
 </style>
 </head>
 <body>
+
+<div class="container" id="slider">
+
+    <!-- Slide 1 -->
+    <section class="slide cover">
+        <h1>Jeshica & Rizky</h1>
+        <p>The Wedding Of</p>
+
+        <button class="btn" onclick="nextSlide()">
+            Buka Undangan
+        </button>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide page">
+        <h1>Assalamu'alaikum</h1>
+        <p>
+            Dengan memohon rahmat dan ridho Allah SWT,
+            kami mengundang Anda untuk hadir.
+        </p>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide page">
+        <h1>Mempelai</h1>
+        <p>Jeshica & Rizky</p>
+    </section>
+
+</div>
+
+</body>
 
 <div class="hearts"></div>
 <audio id="music" loop>
@@ -373,7 +387,16 @@ Math.floor((distance%(1000*60*60))/(1000*60));
 
 document.getElementById("seconds").innerHTML =
 Math.floor((distance%(1000*60))/1000);
+<script>
+let currentSlide = 0;
 
+function nextSlide(){
+    currentSlide++;
+
+    document.getElementById("slider").style.transform =
+    `translateX(-${currentSlide * 100}vw)`;
+}
+</script>
 },1000);
 
 const hearts=document.querySelector('.hearts');
